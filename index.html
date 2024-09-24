@@ -1,0 +1,58 @@
+<!--FORM AGGIUNTA RIMOZIONE INVIO-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+    <title>Lista persone</title>
+</head>
+<body>
+    <h1>Modulo inserimento persone</h1>
+    <form id="Lista persone" action="saluto.html" method="POST" onsubmit="return inviaModulo()">
+        <fieldset>
+            <legend>Dati personali</legend>
+            <label for="name">Nome:</label><br>
+            <input type="text" id="name" name="name"><br>
+
+            <label for="surname">Cognome:</label><br>
+            <input type="text" id="surname" name="surname"><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+
+            <label for="birthdate">Data di nascita:</label><br>
+            <input type="date" id="birthdate" name="birthdate"><br>    
+            
+            <label for="telephone">Numero di Telefono:</label><br>
+            <input type="tel" id="telephone" name="telephone"><br>
+
+            <label for="country">Paese:</label><br>
+            <input type="text" id="country" name="country"><br>
+
+            <label for="province">Provincia:</label><br>
+            <input type="text" id="province" name="province"><br>
+        </fieldset>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+    <div>                                                                                                                                                                   
+        <button type="button" onclick="aggiungiPersona()">Aggiungi Persona</button>
+        <button type="button" onclick="aggiornaTabella()">Aggiorna Tabella</button>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+        <button type="submit">Invia Modulo</button>
+    </div>
+    </form>
+
+    <div id="tabella">
+        <tr>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Email</th>
+            <th>Data di nascita</th>
+            <th>Numero di Telefono</th>
+            <th>Paese</th>
+            <th>Provincia</th>
+        </tr>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script> <!--è bene inserirlo prima della fine sul body-->
+</body>
+</html>
