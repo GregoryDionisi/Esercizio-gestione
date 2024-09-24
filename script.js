@@ -32,20 +32,7 @@ let person = {
 
 people.push(person); 
 
-let deleteButton = document.createElement("button");
-    deleteButton.textContent="Rimuovi";
-
-    deleteButton.onclick = function(){
-        let index = people.indexOf(person) 
-        if (index > -1){
-            people.splice(index,1); 
-            personRow.parentNode.removeChild(personRow); 
-        }
-    }
-    let personRow = document.createElement("tr");
-    personRow.innerHTML = `<td>${name}</td>  <td>${surname}</td  <td>${email}</td   <td>${birthdate}</td    <td>${telephone}</td     <td>${country}</td   <td>${province}</td`;
-    personRow.appendChild(deleteButton);
-    document.getElementById("tabella").appendChild(personRow)
+aggiornaTabella(person);
 
 document.getElementById("name").value = ""; 
 document.getElementById("surname").value = "";
@@ -57,8 +44,21 @@ document.getElementById("province").value = "";
 }
 
 
-function aggiornaTabella(){
-    
+function aggiornaTabella(person){
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent="Rimuovi";
+
+    deleteButton.onclick = function(){
+        let index = people.indexOf(person) 
+        if (index > -1){
+            people.splice(index,1); 
+            personRow.parentNode.removeChild(personRow); 
+        }
+    }
+    let personRow = document.createElement("tr");
+    personRow.innerHTML = `<td>${person.name}</td>  <td>${person.surname}</td  <td>${person.email}</td   <td>${person.birthdate}</td    <td>${person.telephone}</td     <td>${person.country}</td   <td>${person.province}</td`;
+    personRow.appendChild(deleteButton);
+    document.getElementById("tabella").appendChild(personRow)
 }
 
 function inviaModulo(){
