@@ -44,25 +44,43 @@ document.getElementById("province").value = "";
 }
 
 
-function aggiornaTabella(person){
-    let deleteButton = document.createElement("button");
-    deleteButton.textContent="Rimuovi";
+function aggiornaTabella() {
+    let tabella = document.getElementById("dati");
+    tabella.innerHTML = ""; 
 
-    deleteButton.onclick = function(){
-        let index = people.indexOf(person) 
-        if (index > -1){
-            people.splice(index,1); 
-            personRow.parentNode.removeChild(personRow); 
-        }
-    }
-    let personRow = document.createElement("tr");
-    personRow.innerHTML = `<td>${person.name}</td>  <td>${person.surname}</td  <td>${person.email}</td   <td>${person.birthdate}</td    <td>${person.telephone}</td     <td>${person.country}</td   <td>${person.province}</td`;
-    personRow.appendChild(deleteButton);
-    document.getElementById("tabella").appendChild(personRow)
+    people.forEach((person) => {
+        let personRow = document.createElement("tr");
+
+        personRow.innerHTML = `
+        <td>${person.name}</td>
+        <td>${person.surname}</td>
+        <td>${person.email}</td>
+        <td>${person.birthdate}</td>
+        <td>${person.telephone}</td>
+        <td>${person.country}</td>
+        <td>${person.province}</td>
+    `;
+        let deleteButton = document.createElement("button");
+        deleteButton.textContent = "Rimuovi";
+        
+        deleteButton.onclick = function() {
+            let index = people.indexOf(person);
+            if (index > -1) {
+                people.splice(index, 1);
+                personRow.parentNode.removeChild(personRow); 
+            }
+        };
+
+        let action = document.createElement("td");
+        action.appendChild(deleteButton);
+        personRow.appendChild(action);
+
+        tabella.appendChild(personRow);
+    });
 }
 
 function inviaModulo(){
-    if(people.length === 0){ //uguaglianza stretta verifica sia il valore che la tipologia
+    if(people.length === 0){ 
         alert("Per favore, aggiungi almeno una persona")
         return false;
     }

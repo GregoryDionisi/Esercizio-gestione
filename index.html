@@ -1,58 +1,64 @@
-<!--FORM AGGIUNTA RIMOZIONE INVIO-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Lista persone</title>
 </head>
-<body>
-    <h1>Modulo inserimento persone</h1>
-    <form id="Lista persone" action="saluto.html" method="POST" onsubmit="return inviaModulo()">
-        <fieldset>
-            <legend>Dati personali</legend>
-            <label for="name">Nome:</label><br>
-            <input type="text" id="name" name="name"><br>
+<body class="bg-blue-950 pt-10">
+    <h1 class="text-blue-500 text-center font-bold text-5xl">Modulo inserimento persone</h1>
+    
+    <form id="Lista persone" action="saluto.html" method="POST" onsubmit="return inviaModulo()" class="bg-sky-200 w-8/12 mx-auto mt-10 rounded-3xl p-4">
+        <fieldset class="border p-4 rounded-lg">
+            <legend class="text-center font-bold text-blue-500 text-3xl">Dati personali</legend>
+            <label for="name" class="text-blue-500 text-lg">Nome:</label>
+            <input type="text" id="name" name="name" class="input w-full mb-4 placeholder:text-gray-600" required placeholder="Nome">
 
-            <label for="surname">Cognome:</label><br>
-            <input type="text" id="surname" name="surname"><br>
+            <label for="surname" class="text-blue-500 text-lg">Cognome:</label>
+            <input type="text" id="surname" name="surname" class="input w-full mb-4 placeholder:text-gray-600" required placeholder="Cognome">
 
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br>
+            <label for="email" class="text-blue-500 text-lg">Email:</label>
+            <input type="email" id="email" name="email" class="input w-full mb-4 placeholder:text-gray-600" required placeholder="Email">
 
-            <label for="birthdate">Data di nascita:</label><br>
-            <input type="date" id="birthdate" name="birthdate"><br>    
-            
-            <label for="telephone">Numero di Telefono:</label><br>
-            <input type="tel" id="telephone" name="telephone"><br>
+            <label for="birthdate" class="text-blue-500 text-lg">Data di nascita:</label>
+            <input type="date" id="birthdate" name="birthdate" class="input w-full mb-4" required>    
 
-            <label for="country">Paese:</label><br>
-            <input type="text" id="country" name="country"><br>
+            <label for="telephone" class="text-blue-500 text-lg">Numero di Telefono:</label>
+            <input type="tel" id="telephone" name="telephone" class="input w-full mb-4 placeholder:text-gray-600" required placeholder="Numero di Telefono">
 
-            <label for="province">Provincia:</label><br>
-            <input type="text" id="province" name="province"><br>
-        </fieldset>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-    <div>                                                                                                                                                                   
-        <button type="button" onclick="aggiungiPersona()">Aggiungi Persona</button>
-        <button type="button" onclick="aggiornaTabella()">Aggiorna Tabella</button>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-        <button type="submit">Invia Modulo</button>
-    </div>
+            <label for="country" class="text-blue-500 text-lg">Paese:</label>
+            <input type="text" id="country" name="country" class="input w-full mb-4 placeholder:text-gray-600" required placeholder="Paese">
+
+            <label for="province" class="text-blue-500 text-lg">Provincia:</label>
+            <input type="text" id="province" name="province" class="input w-full mb-4 placeholder:text-gray-600" required placeholder="Provincia">
+        </fieldset>
+        
+        <div class="flex justify-end space-x-3">
+            <button class="inline-block cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center font-semibold text-white transition duration-200 ease-in-out hover:bg-blue-500" type="button" onclick="aggiungiPersona()">Aggiungi Persona</button>
+            <button class="inline-block cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center font-semibold text-white transition duration-200 ease-in-out hover:bg-blue-500" type="submit">Invia Modulo</button>
+        </div>
     </form>
 
-    <div id="tabella">
-        <tr>
-            <th>Nome</th>
-            <th>Cognome</th>
-            <th>Email</th>
-            <th>Data di nascita</th>
-            <th>Numero di Telefono</th>
-            <th>Paese</th>
-            <th>Provincia</th>
-        </tr>
-    </div>
+    <table class="table mt-10 w-4/5 mx-auto bg-sky-200 text-xl text-blue-500">
+        <thead>
+            <tr class="text-xl text-blue-500">
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Email</th>
+                <th>Data di nascita</th>
+                <th>Numero di Telefono</th>
+                <th>Paese</th>
+                <th>Provincia</th>
+                <th>Azione</th>
+            </tr>
+        </thead>
+        <tbody id="dati">
 
-    <script type="text/javascript" src="script.js"></script> <!--è bene inserirlo prima della fine sul body-->
+        </tbody>
+    </table>
+    
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
