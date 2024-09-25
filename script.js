@@ -67,7 +67,8 @@ function aggiornaTabella() {
             let index = people.indexOf(person);
             if (index > -1) {
                 people.splice(index, 1);
-                personRow.parentNode.removeChild(personRow); 
+                personRow.parentNode.removeChild(personRow);
+                aggiornaTabella(person) 
             }
         };
 
